@@ -16,7 +16,7 @@
     "build": "tsc",
     "prettier:check": "prettier --check src/**/*.ts",
     "prettier": "prettier --write src/**/*.ts",
-    "eslint": "eslint 'src/**/*.ts'",
+    "eslint": "eslint src/**/*.ts",
     "lint": "yarn prettier:check && yarn eslint",
     "prepare": "yarn lint && yarn build",
     "release": "release-it"
