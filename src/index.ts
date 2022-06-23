@@ -1,8 +1,6 @@
-import os from 'os';
-import path from 'path';
-import fs from 'fs';
 import getDistVersion from './getDistVersion';
 import isNpmOrYarn from './isNpmOrYarn';
+import { createConfigDir, getLastUpdate, saveLastUpdate } from './cache';
 
 interface IUpdate {
   pkg: { name: string; version: string };
@@ -11,27 +9,6 @@ interface IUpdate {
   distTag?: string;
   alwaysRun?: boolean;
 }
-
-const homeDirectory = os.homedir();
-const configDir =
-  process.env.XDG_CONFIG_HOME ||
-  path.join(homeDirectory, '.config', 'simple-update-notifier');
-
-const createConfigDir = () => {
-  fs.mkdirSync(configDir, { recursive: true });
-};
-
-const getLastUpdate = (configFile: string) => {
-  try {
-    if (!fs.existsSync(configFile)) {
-      return undefined;
-    }
-    const file = JSON.parse(fs.readFileSync(configFile, 'utf8'));
-    return file.lastUpdateCheck;
-  } catch {
-    return undefined;
-  }
-};
 
 // Currently doesn't handle "-" versions
 const isVersionNewer = (oldVersion: string, newVersion: string) => {
@@ -54,22 +31,17 @@ export const hasNewVersion = async ({
   alwaysRun,
 }: IUpdate) => {
   createConfigDir();
-  const configFile = path.join(configDir, `${pkg.name}.json`);
-  const lastUpdateCheck = getLastUpdate(configFile);
+  const lastUpdateCheck = getLastUpdate(pkg.name);
   if (
     alwaysRun ||
     !lastUpdateCheck ||
     lastUpdateCheck < new Date().getTime() - updateCheckInterval
   ) {
     const latestVersion = await getDistVersion(pkg.name, distTag);
-    console.log(latestVersion);
     if (isVersionNewer(pkg.version, latestVersion)) {
       return latestVersion;
     }
-    fs.writeFileSync(
-      configFile,
-      JSON.stringify({ lastUpdateCheck: new Date().getTime() })
-    );
+    saveLastUpdate(pkg.name);
     return false;
   } else {
     return false;

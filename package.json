@@ -12,7 +12,7 @@
   "author": "alexbrazier",
   "license": "MIT",
   "scripts": {
-    "test": "jest",
+    "test": "jest src",
     "build": "tsc",
     "prettier:check": "prettier --check 'src/**/*.ts'",
     "prettier": "prettier --write 'src/**/*.ts'",
