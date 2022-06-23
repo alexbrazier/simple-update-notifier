@@ -53,11 +53,15 @@ const simpleUpdateNotifier = async (args: IUpdate) => {
     return;
   }
 
-  const latestVersion = await hasNewVersion(args);
-  if (latestVersion) {
-    console.log(
-      `New version of ${args.pkg.name} available!\nCurrent Version: ${args.pkg.version}\nLatest Version: ${latestVersion}`
-    );
+  try {
+    const latestVersion = await hasNewVersion(args);
+    if (latestVersion) {
+      console.log(
+        `New version of ${args.pkg.name} available!\nCurrent Version: ${args.pkg.version}\nLatest Version: ${latestVersion}`
+      );
+    }
+  } catch {
+    // Catch any network errors or cache writing errors so module doesn't cause a crash
   }
 };
 
