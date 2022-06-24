@@ -1,4 +1,4 @@
-import { hasNewVersion } from '.';
+import hasNewVersion from './hasNewVersion';
 import { getLastUpdate } from './cache';
 import getDistVersion from './getDistVersion';
 

@@ -13,7 +13,7 @@
   "license": "MIT",
   "scripts": {
     "test": "jest src",
-    "build": "tsc",
+    "build": "rollup -c rollup.config.js",
     "prettier:check": "prettier --check src/**/*.ts",
     "prettier": "prettier --write src/**/*.ts",
     "eslint": "eslint src/**/*.ts",
@@ -35,6 +35,8 @@
     "jest": "^28.1.1",
     "prettier": "^2.7.1",
     "release-it": "^15.1.0",
+    "rollup": "^2.75.7",
+    "rollup-plugin-ts": "^3.0.2",
     "typescript": "^4.7.4"
   },
   "publishConfig": {
