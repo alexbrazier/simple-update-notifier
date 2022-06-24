@@ -2,6 +2,8 @@
 
 Simple update notifier to check for npm updates for cli applications with zero dependencies.
 
+<img src="./.github/demo.png" alt="Demo in terminal showing an update is required">
+
 Checks for updates for an npm module and outputs to the command line if there is one available. The result is cached for the specified time so it doesn't check every time the app runs.
 
 ## Install
