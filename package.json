@@ -11,6 +11,9 @@
   "homepage": "https://github.com/alexbrazier/simple-update-notifier.git",
   "author": "alexbrazier",
   "license": "MIT",
+  "engines": {
+    "node": ">=8.10.0"
+  },
   "scripts": {
     "test": "jest src",
     "build": "rollup -c rollup.config.js",

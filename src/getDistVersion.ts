@@ -5,17 +5,19 @@ const getDistVersion = async (packageName: string, distTag: string) => {
 
   return new Promise<string>((resolve, reject) => {
     https
-      .get(url, async (res) => {
+      .get(url, (res) => {
         let body = '';
-        for await (const chunk of res) body += chunk;
-        const json = JSON.parse(body);
-        const version = json[distTag].split('-')[0];
 
-        if (!version) {
-          reject(new Error('Error getting version'));
-        }
+        res.on('data', (chunk) => (body += chunk));
+        res.on('end', () => {
+          const json = JSON.parse(body);
+          const version = json[distTag].split('-')[0];
+          if (!version) {
+            reject(new Error('Error getting version'));
+          }
 
-        resolve(version);
+          resolve(version);
+        });
       })
       .on('error', (err) => reject(err));
   });

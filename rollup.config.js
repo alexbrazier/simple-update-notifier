@@ -1,4 +1,4 @@
-const ts = require('rollup-plugin-ts');
+import ts from 'rollup-plugin-ts';
 
 const output = {
   format: 'cjs',
@@ -8,8 +8,10 @@ const output = {
 
 const plugins = [ts()];
 
-module.exports = {
+const config = {
   input: './src/index.ts',
   output,
   plugins,
 };
+
+export default config;
