@@ -12,7 +12,7 @@ const getDistVersion = async (packageName: string, distTag: string) => {
         res.on('end', () => {
           try {
             const json = JSON.parse(body);
-            const version = json[distTag].split('-')[0];
+            const version = json[distTag];
             if (!version) {
               reject(new Error('Error getting version'));
             }

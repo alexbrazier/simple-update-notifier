@@ -1,4 +1,4 @@
-import hasNewVersion from './hasNewVersion';
+import hasNewVersion, { isVersionNewer } from './hasNewVersion';
 import { getLastUpdate } from './cache';
 import getDistVersion from './getDistVersion';
 
@@ -93,4 +93,34 @@ it('should not trigger update check if last update is too recent', async () => {
 
   expect(newVersion).toBe(false);
   expect(getDistVersion).not.toHaveBeenCalled();
+});
+
+describe('isVersionNewer', () => {
+  test('returns true for patch increase', () => {
+    expect(isVersionNewer('1.0.0', '1.0.1')).toBe(true);
+  });
+  test('returns true for minor increase', () => {
+    expect(isVersionNewer('1.0.0', '1.1.0')).toBe(true);
+  });
+  test('returns true for major increase', () => {
+    expect(isVersionNewer('1.0.0', '2.0.0')).toBe(true);
+  });
+  test('returns true for patch increase ignoring prerelease flag', () => {
+    expect(isVersionNewer('1.0.0-development', '1.0.1')).toBe(true);
+  });
+  test('returns false for same version', () => {
+    expect(isVersionNewer('1.0.0', '1.0.0')).toBe(false);
+  });
+  test('returns false for same version ignoring prerelease flag', () => {
+    expect(isVersionNewer('1.0.0-development', '1.0.0')).toBe(false);
+  });
+  test('returns false for lower patch version', () => {
+    expect(isVersionNewer('1.0.1', '1.0.0')).toBe(false);
+  });
+  test('returns false for lower minor version', () => {
+    expect(isVersionNewer('1.1.0', '1.0.0')).toBe(false);
+  });
+  test('returns false for lower minor version', () => {
+    expect(isVersionNewer('2.0.0', '1.0.0')).toBe(false);
+  });
 });
