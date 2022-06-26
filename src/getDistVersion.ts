@@ -10,13 +10,16 @@ const getDistVersion = async (packageName: string, distTag: string) => {
 
         res.on('data', (chunk) => (body += chunk));
         res.on('end', () => {
-          const json = JSON.parse(body);
-          const version = json[distTag].split('-')[0];
-          if (!version) {
-            reject(new Error('Error getting version'));
+          try {
+            const json = JSON.parse(body);
+            const version = json[distTag].split('-')[0];
+            if (!version) {
+              reject(new Error('Error getting version'));
+            }
+            resolve(version);
+          } catch {
+            reject(new Error('Could not parse version response'));
           }
-
-          resolve(version);
         });
       })
       .on('error', (err) => reject(err));
