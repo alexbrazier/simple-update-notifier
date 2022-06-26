@@ -2,10 +2,9 @@ import { createConfigDir, getLastUpdate, saveLastUpdate } from './cache';
 import getDistVersion from './getDistVersion';
 import { IUpdate } from './types';
 
-// Currently doesn't handle "-" versions
-const isVersionNewer = (oldVersion: string, newVersion: string) => {
-  const oldVersionArray = oldVersion.split('.');
-  const newVersionArray = newVersion.split('.');
+export const isVersionNewer = (oldVersion: string, newVersion: string) => {
+  const oldVersionArray = oldVersion.split('-')[0].split('.');
+  const newVersionArray = newVersion.split('-')[0].split('.');
   for (let i = 0; i < oldVersionArray.length; i++) {
     if (Number(oldVersionArray[i]) < Number(newVersionArray[i])) {
       return true;
