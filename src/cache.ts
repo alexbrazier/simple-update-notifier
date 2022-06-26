@@ -12,7 +12,9 @@ const getConfigFile = (packageName: string) => {
 };
 
 export const createConfigDir = () => {
-  fs.mkdirSync(configDir, { recursive: true });
+  if (!fs.existsSync(configDir)) {
+    fs.mkdirSync(configDir, { recursive: true });
+  }
 };
 
 export const getLastUpdate = (packageName: string) => {
