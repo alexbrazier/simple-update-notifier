@@ -1,6 +1,6 @@
 {
   "name": "simple-update-notifier",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Simple update notifier to check for npm updates for cli applications",
   "main": "build/index.js",
   "types": "build/index.d.ts",
