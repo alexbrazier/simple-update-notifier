@@ -1,4 +1,11 @@
-# simple-update-notifier
+# simple-update-notifier [![GitHub stars](https://img.shields.io/github/stars/alexbrazier/simple-update-notifier?label=Star%20Project&style=social)](https://github.com/alexbrazier/simple-update-notifier/stargazers)
+
+[![CI](https://github.com/alexbrazier/simple-update-notifier/workflows/Build%20and%20Deploy/badge.svg)](https://github.com/alexbrazier/simple-update-notifier/actions)
+[![Dependencies](https://img.shields.io/librariesio/release/npm/simple-update-notifier)](https://www.npmjs.com/package/simple-update-notifier?activeTab=dependencies)
+[![npm](https://img.shields.io/npm/v/simple-update-notifier)](https://www.npmjs.com/package/simple-update-notifier)
+[![npm bundle size](https://img.shields.io/bundlephobia/min/simple-update-notifier)](https://bundlephobia.com/result?p=simple-update-notifier)
+[![npm downloads](https://img.shields.io/npm/dw/simple-update-notifier)](https://www.npmjs.com/package/simple-update-notifier)
+[![License](https://img.shields.io/npm/l/simple-update-notifier)](./LICENSE)
 
 Simple update notifier to check for npm updates for cli applications.
 
