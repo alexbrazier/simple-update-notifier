@@ -14,11 +14,11 @@ export const isVersionNewer = (oldVersion: string, newVersion: string) => {
       return false;
     }
   }
-  const preOldArray = (vOld[1] || '').split('.')
-  const preNewArray = (vNew[1] || '').split('.')
-  const preOld = preOldArray[1] || preOldArray[0]
-  const preNew = preNewArray[1] || preNewArray[0]
-  if ((vOld[1] && !vNew[1]) || (Number(preOld) < Number(preNew))) {
+  const preOldArray = (vOld[1] || '').split('.');
+  const preNewArray = (vNew[1] || '').split('.');
+  const preOld = preOldArray[1] || preOldArray[0];
+  const preNew = preNewArray[1] || preNewArray[0];
+  if ((vOld[1] && !vNew[1]) || Number(preOld) < Number(preNew)) {
     return true;
   }
   return false;
