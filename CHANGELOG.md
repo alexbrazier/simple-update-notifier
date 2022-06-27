@@ -1,3 +1,7 @@
+## [1.0.6](https://github.com/alexbrazier/simple-update-notifier/compare/v1.0.5...v1.0.6) (2022-06-27)
+
+Switch to using [semver](https://github.com/npm/node-semver)
+
 ## [1.0.5](https://github.com/alexbrazier/simple-update-notifier/compare/v1.0.4...v1.0.5) (2022-06-27)
 
 Handle prerelease versions
