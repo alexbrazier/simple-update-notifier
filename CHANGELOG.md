@@ -1,3 +1,7 @@
+## [1.0.5](https://github.com/alexbrazier/simple-update-notifier/compare/v1.0.4...v1.0.5) (2022-06-27)
+
+Handle prerelease versions
+
 ## [1.0.4](https://github.com/alexbrazier/simple-update-notifier/compare/v1.0.3...v1.0.4) (2022-06-26)
 
 Handle invalid version response and prerelease versions
