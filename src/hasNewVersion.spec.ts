@@ -111,8 +111,11 @@ describe('isVersionNewer', () => {
   test('returns false for same version', () => {
     expect(isVersionNewer('1.0.0', '1.0.0')).toBe(false);
   });
-  test('returns false for same version ignoring prerelease flag', () => {
-    expect(isVersionNewer('1.0.0-development', '1.0.0')).toBe(false);
+  test('returns true for same release version', () => {
+    expect(isVersionNewer('1.0.0-development', '1.0.0')).toBe(true);
+  });
+  test('returns true for check prerelease version', () => {
+    expect(isVersionNewer('1.0.0-1', '1.0.0-rc.2')).toBe(true);
   });
   test('returns false for lower patch version', () => {
     expect(isVersionNewer('1.0.1', '1.0.0')).toBe(false);
