@@ -84,8 +84,8 @@ it('should trigger update check if last update older than config', async () => {
 });
 
 it('should not trigger update check if last update is too recent', async () => {
-  const ONE_DAY = new Date().getTime() - 1000 * 60 * 60 * 24;
-  (getLastUpdate as jest.Mock).mockReturnValue(ONE_DAY);
+  const TWELVE_HOURS = new Date().getTime() - 1000 * 60 * 60 * 12;
+  (getLastUpdate as jest.Mock).mockReturnValue(TWELVE_HOURS);
   const newVersion = await hasNewVersion({
     pkg,
     shouldNotifyInNpmScript: true,
