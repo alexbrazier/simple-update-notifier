@@ -1,6 +1,6 @@
 # simple-update-notifier
 
-Simple update notifier to check for npm updates for cli applications with zero dependencies.
+Simple update notifier to check for npm updates for cli applications.
 
 <img src="./.github/demo.png" alt="Demo in terminal showing an update is required">
 
