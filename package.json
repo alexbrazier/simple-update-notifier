@@ -25,7 +25,7 @@
     "release": "release-it"
   },
   "dependencies": {
-    "semver": "^7.3.7"
+    "semver": "~7.0.0"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.18.2",
