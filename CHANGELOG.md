@@ -1,3 +1,7 @@
+## [1.0.7](https://github.com/alexbrazier/simple-update-notifier/compare/v1.0.6...v1.0.7) (2022-06-28)
+
+Downgrade semver to `7.0.0` to continue to support node 8
+
 ## [1.0.6](https://github.com/alexbrazier/simple-update-notifier/compare/v1.0.5...v1.0.6) (2022-06-27)
 
 Switch to using [semver](https://github.com/npm/node-semver)
