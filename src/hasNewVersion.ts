@@ -21,10 +21,9 @@ const hasNewVersion = async ({
     if (semver.gt(latestVersion, pkg.version)) {
       return latestVersion;
     }
-    return false;
-  } else {
-    return false;
   }
+
+  return false;
 };
 
 export default hasNewVersion;
