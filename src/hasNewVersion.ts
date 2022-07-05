@@ -22,7 +22,7 @@ const hasNewVersion = async ({
       return latestVersion;
     }
   }
-  
+
   return false;
 };
 
