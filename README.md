@@ -24,7 +24,7 @@ yarn add simple-update-notifier
 ## Usage
 
 ```js
-import updateNotifier from 'update-notifier';
+import updateNotifier from 'simple-update-notifier';
 import packageJson from './package.json' assert { type: 'json' };
 
 updateNotifier({ pkg: packageJson });
