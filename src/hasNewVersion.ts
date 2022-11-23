@@ -8,6 +8,7 @@ const hasNewVersion = async ({
   updateCheckInterval = 1000 * 60 * 60 * 24,
   distTag = 'latest',
   alwaysRun,
+  debug,
 }: IUpdate) => {
   createConfigDir();
   const lastUpdateCheck = getLastUpdate(pkg.name);
@@ -20,7 +21,17 @@ const hasNewVersion = async ({
     saveLastUpdate(pkg.name);
     if (semver.gt(latestVersion, pkg.version)) {
       return latestVersion;
+    } else if (debug) {
+      console.error(
+        `Latest version (${latestVersion}) not newer than current version (${pkg.version})`
+      );
     }
+  } else if (debug) {
+    console.error(
+      `Too recent to check for a new update. simpleUpdateNotifier() interval set to ${updateCheckInterval}ms but only ${
+        new Date().getTime() - lastUpdateCheck
+      }ms since last check.`
+    );
   }
 
   return false;
