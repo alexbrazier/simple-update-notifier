@@ -1,3 +1,7 @@
+## [1.0.8](https://github.com/alexbrazier/simple-update-notifier/compare/v1.0.7...v1.0.8) (2022-11-23)
+
+Adds support for vendor prefixed packages (#12)
+
 ## [1.0.7](https://github.com/alexbrazier/simple-update-notifier/compare/v1.0.6...v1.0.7) (2022-06-28)
 
 Downgrade semver to `7.0.0` to continue to support node 8
