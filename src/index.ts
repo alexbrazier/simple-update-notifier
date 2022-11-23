@@ -14,7 +14,7 @@ const simpleUpdateNotifier = async (args: IUpdate) => {
   try {
     const latestVersion = await hasNewVersion(args);
     if (latestVersion) {
-      console.log(
+      console.error(
         borderedText(`New version of ${args.pkg.name} available!
 Current Version: ${args.pkg.version}
 Latest Version: ${latestVersion}`)
