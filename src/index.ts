@@ -8,6 +8,9 @@ const simpleUpdateNotifier = async (args: IUpdate) => {
     !args.alwaysRun &&
     (!process.stdout.isTTY || (isNpmOrYarn && !args.shouldNotifyInNpmScript))
   ) {
+    if (args.debug) {
+      console.error('Opting out of running simpleUpdateNotifier()');
+    }
     return;
   }
 
@@ -20,8 +23,11 @@ Current Version: ${args.pkg.version}
 Latest Version: ${latestVersion}`)
       );
     }
-  } catch {
+  } catch (err) {
     // Catch any network errors or cache writing errors so module doesn't cause a crash
+    if (args.debug && err instanceof Error) {
+      console.error('Unexpected error in simpleUpdateNotifier():', err);
+    }
   }
 };
 

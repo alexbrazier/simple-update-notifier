@@ -50,6 +50,7 @@ Type: `string`
 
 Type: `number`\
 Default: `1000 * 60 * 60 * 24` _(1 day)_
+
 How often to check for updates.
 
 #### shouldNotifyInNpmScript
@@ -65,3 +66,17 @@ Type: `string`\
 Default: `'latest'`
 
 Which [dist-tag](https://docs.npmjs.com/adding-dist-tags-to-packages) to use to find the latest version.
+
+#### alwaysRun
+
+Type: `boolean`\
+Default: `false`
+
+When set, `updateCheckInterval` will not be respected and a check for an update will always be performed.
+
+#### debug
+
+Type: `boolean`\
+Default: `false`
+
+When set, logs explaining the decision will be output to `stderr` whenever the module opts to not print an update notification
