@@ -1,3 +1,8 @@
+# [1.1.0](https://github.com/alexbrazier/simple-update-notifier/compare/v1.0.8...v1.1.0) (2022-11-24)
+
+Add debug flag to simpleUpdateNotifier() (#15)
+Use stderr, not stdout, for notification (#16)
+
 ## [1.0.8](https://github.com/alexbrazier/simple-update-notifier/compare/v1.0.7...v1.0.8) (2022-11-23)
 
 Adds support for vendor prefixed packages (#12)
