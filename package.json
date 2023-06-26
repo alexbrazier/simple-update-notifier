@@ -12,7 +12,7 @@
   "author": "alexbrazier",
   "license": "MIT",
   "engines": {
-    "node": ">=8.10.0"
+    "node": ">=10"
   },
   "scripts": {
     "test": "jest src --noStackTrace",
@@ -25,7 +25,7 @@
     "release": "release-it"
   },
   "dependencies": {
-    "semver": "~7.5.0"
+    "semver": "^7.5.3"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.19.1",
