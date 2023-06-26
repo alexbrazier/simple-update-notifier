@@ -1,3 +1,18 @@
+# [2.0.0](https://github.com/alexbrazier/simple-update-notifier/compare/v1.1.0...v2.0.0) (2023-06-26)
+
+## BREAKING CHANGES
+
+- Bump semver version to avoid audit errors for users of the library (#19)
+  - Min node version is now >= 10
+  - If you already use a higher version of node then you can safely upgrade
+
+## Other Updates
+
+- chore(deps): bump ua-parser-js from 1.0.2 to 1.0.33 (#17)
+- chore(deps): bump json5 from 2.2.1 to 2.2.3 (#18)
+- Update dev dependencies to latest (#21)
+- Force semver to latest version in for dev deps (#22)
+
 # [1.1.0](https://github.com/alexbrazier/simple-update-notifier/compare/v1.0.8...v1.1.0) (2022-11-24)
 
 Add debug flag to simpleUpdateNotifier() (#15)
